@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $conn = new mysqli(
     "localhost",
     "root",
@@ -8,14 +10,11 @@ $conn = new mysqli(
 );
 
 if($conn->connect_error){
-
     die("Connection Failed");
 }
 
 $username = $_POST['username'];
-
 $password = $_POST['password'];
-
 $role = $_POST['role'];
 
 $sql = "SELECT * FROM users
@@ -25,12 +24,7 @@ AND role = ?";
 
 $stmt = $conn->prepare($sql);
 
-$stmt->bind_param(
-    "sss",
-    $username,
-    $password,
-    $role
-);
+$stmt->bind_param("sss", $username, $password, $role);
 
 $stmt->execute();
 
@@ -38,21 +32,20 @@ $result = $stmt->get_result();
 
 if($result->num_rows > 0){
 
-    echo "<h1>Login Successful</h1>";
 
-    echo "Welcome " . $username;
+    $_SESSION['username'] = $username;
+    $_SESSION['role'] = $role;
 
-    echo "<br>";
+    if($role == "student"){
+        header("Location: student.php");
+    }
+    else{
+        header("Location: admin.php");
+    }
 
-    echo "Role : " . $role;
 }
 else{
-
-    echo "<h1>Invalid Username or Password</h1>";
+    echo "Invalid login";
 }
-
-$stmt->close();
-
-$conn->close();
 
 ?>

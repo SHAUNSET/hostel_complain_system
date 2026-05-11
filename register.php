@@ -33,9 +33,7 @@ $stmt->bind_param(
 
 if($stmt->execute()){
 
-    echo "<h1>Registration Successful</h1>";
-
-    echo "User Created Successfully";
+    header("Location: login.html");
 }
 else{
 
