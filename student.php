@@ -31,12 +31,12 @@ session_start();
 
 .dashboard h1{
 
-    margin-bottom:20px;
+    margin-bottom:30px;
 }
 
 .dashboard a{
 
-    display:inline-block;
+    display:block;
 
     margin-top:20px;
 
@@ -46,9 +46,18 @@ session_start();
 
     color:white;
 
-    padding:10px 20px;
+    padding:12px;
 
     border-radius:8px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.dashboard a:hover{
+
+    background:#45a049;
 }
 
 </style>
@@ -59,13 +68,23 @@ session_start();
 
 <div class="dashboard">
 
-<h1>Welcome <?php echo $_SESSION['username']; ?></h1>
+<h1>
+Welcome <?php echo $_SESSION['username']; ?>
+</h1>
 
-<p>
-Student Portal
-</p>
+<a href="complaint.php">
 
-<a href="login.html">
+Submit Complaint
+
+</a>
+
+<a href="my_complaints.php">
+
+View My Complaints
+
+</a>
+
+<a href="logout.php">
 
 Logout
 
