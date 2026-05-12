@@ -13,13 +13,133 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <style>
+
+        body{
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                to right,
+                #74ebd5,
+                #ACB6E5
+            );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            margin: 0;
+        }
+
+        .container{
+
+            width: 350px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+        }
+
+        h1{
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            color: #333;
+        }
+
+        label{
+
+            font-weight: bold;
+
+            display: block;
+
+            margin-bottom: 8px;
+        }
+
+        input{
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            box-sizing: border-box;
+        }
+
+        button{
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #4CAF50;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover{
+
+            background: #45a049;
+        }
+
+        .link{
+
+            margin-top: 20px;
+
+            text-align: center;
+        }
+
+        .link a{
+
+            text-decoration: none;
+
+            color: #007bff;
+
+            font-weight: bold;
+        }
+
+        .link a:hover{
+
+            text-decoration: underline;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>REGISTER</h1>
+    <h1>Register</h1>
 
     <form action="register.php" method="POST">
 
@@ -39,26 +159,10 @@
         placeholder="Enter Password"
         required>
 
-        <label>Role</label>
-
-        <select name="role" required>
-
-            <option value="">
-                Select Role
-            </option>
-
-            <option value="student">
-                Student
-            </option>
-
-            <option value="admin">
-                Admin
-            </option>
-
-        </select>
-
         <button type="submit">
+
             Register
+
         </button>
 
     </form>
@@ -67,8 +171,10 @@
 
         Already have an account?
 
-        <a href="login.html">
+        <a href="index.php">
+
             Login
+
         </a>
 
     </div>

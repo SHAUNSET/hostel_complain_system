@@ -5,7 +5,7 @@ session_start();
 $conn = new mysqli(
     "localhost",
     "root",
-    "",
+    "YOUR_DB_PASSWORD",
     "hostel_db"
 );
 
@@ -32,7 +32,7 @@ $result = $stmt->get_result();
 
 if($result->num_rows > 0){
 
-
+    // store session
     $_SESSION['username'] = $username;
     $_SESSION['role'] = $role;
 

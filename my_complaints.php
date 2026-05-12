@@ -14,9 +14,18 @@ if($conn->connect_error){
     die("Connection Failed");
 }
 
-$sql = "SELECT * FROM complaints";
+$username = $_SESSION['username'];
 
-$result = $conn->query($sql);
+$sql = "SELECT * FROM complaints
+WHERE username = ?";
+
+$stmt = $conn->prepare($sql);
+
+$stmt->bind_param("s", $username);
+
+$stmt->execute();
+
+$result = $stmt->get_result();
 
 ?>
 
@@ -26,17 +35,32 @@ $result = $conn->query($sql);
 
 <head>
 
-<title>Admin Dashboard</title>
-
-<link rel="stylesheet" href="style.css">
+<title>My Complaints</title>
 
 <style>
 
-.dashboard{
+body{
+
+    font-family:Arial, sans-serif;
+
+    background:linear-gradient(
+        to right,
+        #74ebd5,
+        #ACB6E5
+    );
+
+    margin:0;
+
+    padding:0;
+}
+
+.container{
 
     width:90%;
 
-    max-width:1200px;
+    max-width:1000px;
+
+    margin:50px auto;
 
     background:white;
 
@@ -47,7 +71,7 @@ $result = $conn->query($sql);
     box-shadow:0px 0px 15px rgba(0,0,0,0.2);
 }
 
-.dashboard h1{
+h1{
 
     text-align:center;
 
@@ -65,7 +89,7 @@ th, td{
 
     padding:15px;
 
-    border:1px solid #ccc;
+    border:1px solid #ddd;
 
     text-align:center;
 }
@@ -77,24 +101,16 @@ th{
     color:white;
 }
 
-.resolve-btn{
+tr:nth-child(even){
 
-    background:#007bff;
-
-    color:white;
-
-    padding:8px 15px;
-
-    border-radius:6px;
-
-    text-decoration:none;
-
-    font-weight:bold;
+    background:#f2f2f2;
 }
 
-.resolve-btn:hover{
+.pending{
 
-    background:#0056b3;
+    color:orange;
+
+    font-weight:bold;
 }
 
 .resolved{
@@ -104,26 +120,28 @@ th{
     font-weight:bold;
 }
 
-.logout{
+.back-btn{
 
     display:inline-block;
 
     margin-top:25px;
 
-    background:red;
+    background:#007bff;
 
     color:white;
 
     padding:10px 20px;
 
+    border-radius:8px;
+
     text-decoration:none;
 
-    border-radius:8px;
+    font-weight:bold;
 }
 
-.logout:hover{
+.back-btn:hover{
 
-    background:darkred;
+    background:#0056b3;
 }
 
 </style>
@@ -132,10 +150,12 @@ th{
 
 <body>
 
-<div class="dashboard">
+<div class="container">
 
 <h1>
-Welcome Admin
+
+My Complaints
+
 </h1>
 
 <table>
@@ -143,11 +163,9 @@ Welcome Admin
 <tr>
 
 <th>ID</th>
-<th>Username</th>
 <th>Complaint</th>
 <th>Status</th>
 <th>Date</th>
-<th>Action</th>
 
 </tr>
 
@@ -159,31 +177,18 @@ while($row = $result->fetch_assoc()){
 
     echo "<td>".$row['id']."</td>";
 
-    echo "<td>".$row['username']."</td>";
-
     echo "<td>".$row['complaint']."</td>";
-
-    echo "<td>".$row['status']."</td>";
-
-    echo "<td>".$row['created_at']."</td>";
-
-    echo "<td>";
 
     if($row['status'] == "Pending"){
 
-        echo "<a class='resolve-btn'
-        href='resolve.php?id=".$row['id']."'>
-        Resolve
-        </a>";
+        echo "<td class='pending'>Pending</td>";
     }
     else{
 
-        echo "<span class='resolved'>
-        Resolved
-        </span>";
+        echo "<td class='resolved'>Resolved</td>";
     }
 
-    echo "</td>";
+    echo "<td>".$row['created_at']."</td>";
 
     echo "</tr>";
 }
@@ -192,9 +197,9 @@ while($row = $result->fetch_assoc()){
 
 </table>
 
-<a class="logout" href="logout.php">
+<a class="back-btn" href="student.php">
 
-Logout
+← Back to Dashboard
 
 </a>
 

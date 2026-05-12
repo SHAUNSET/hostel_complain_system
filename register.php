@@ -3,7 +3,7 @@
 $conn = new mysqli(
     "localhost",
     "root",
-    "",
+    "YOUR_DB_PASSWORD",
     "hostel_db"
 );
 
@@ -16,7 +16,7 @@ $username = $_POST['username'];
 
 $password = $_POST['password'];
 
-$role = $_POST['role'];
+$role = "student";
 
 $sql = "INSERT INTO users
 (username, password, role)
@@ -33,7 +33,7 @@ $stmt->bind_param(
 
 if($stmt->execute()){
 
-    header("Location: login.html");
+    header("Location: index.php");
 }
 else{
 
