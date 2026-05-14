@@ -1,18 +1,18 @@
-# 🏨 Hostel Complaint Management System
+# Hostel Complaint Management System
  
 > A role-based complaint tracking web application for hostel administration — built with PHP, MySQL, and Apache via XAMPP.
  
 ---
  
-## 🔍 Overview
+##  Overview
  
 The **Hostel Complaint Management System** streamlines the process of submitting, tracking, and resolving hostel-related complaints. Students can log in to submit complaints and monitor their status in real time, while administrators have a centralized dashboard to review and resolve all open issues.
  
 ---
  
-## ✨ Features
+##  Features
  
-### 👨‍🎓 Student Module
+### Student Module
 | Feature | Description |
 |---|---|
 | Registration | Create a new student account |
@@ -22,7 +22,7 @@ The **Hostel Complaint Management System** streamlines the process of submitting
 | Status Tracking | Monitor real-time `Pending` / `Resolved` status |
 | Auto Login | Persistent session until manual logout |
  
-### 👨‍💼 Admin Module
+### Admin Module
 | Feature | Description |
 |---|---|
 | Secure Login | Dedicated admin authentication |
@@ -33,7 +33,7 @@ The **Hostel Complaint Management System** streamlines the process of submitting
  
 ---
  
-## 🛠️ Tech Stack
+##  Tech Stack
  
 | Layer | Technology |
 |---|---|
@@ -45,7 +45,7 @@ The **Hostel Complaint Management System** streamlines the process of submitting
  
 ---
  
-## 📂 Project Structure
+##  Project Structure
  
 ```
 hostel_complain/
@@ -71,7 +71,7 @@ hostel_complain/
  
 ---
  
-## 🗄️ Database Design
+##  Database Design
  
 ### `users` Table
 ```sql
@@ -96,7 +96,7 @@ CREATE TABLE complaints (
  
 ---
  
-## 🔐 Authentication Flow
+##  Authentication Flow
  
 ```
 Register ──► Login ──► Session Created ──► Dashboard (Student / Admin)
@@ -107,9 +107,9 @@ Register ──► Login ──► Session Created ──► Dashboard (Student 
 - Session persists until the user explicitly logs out
 ---
  
-## ⚙️ Functional Flow
+##  Functional Flow
  
-### 👨‍🎓 Student Flow
+###  Student Flow
  
 ```
 Login
@@ -118,7 +118,7 @@ Login
         └─► My Complaints     ──►  Live status updates
 ```
  
-### 👨‍💼 Admin Flow
+###  Admin Flow
  
 ```
 Login
@@ -127,7 +127,7 @@ Login
               └─► Click Resolve  ──►  Status updated to [Resolved]
 ```
  
-### 🔄 Complaint Lifecycle
+###  Complaint Lifecycle
  
 ```
 [ Pending ]  ──────(Admin Action)──────►  [ Resolved ]
@@ -139,7 +139,7 @@ Login
  
 ---
  
-## 🚀 Getting Started
+##  Getting Started
  
 ### Prerequisites
 - [XAMPP](https://www.apachefriends.org/) installed on your machine
@@ -169,7 +169,7 @@ http://localhost/hostel_complain/
  
 ---
  
-## 🧠 Key Concepts Demonstrated
+##  Key Concepts Demonstrated
  
 - PHP session management
 - MySQL CRUD operations
@@ -181,7 +181,7 @@ http://localhost/hostel_complain/
 - MVC-inspired separation of logic and presentation
 ---
  
-## 🔮 Future Improvements
+##  Future Improvements
  
 - [ ] Password hashing with **bcrypt**
 - [ ] Hardened admin authentication
@@ -192,7 +192,7 @@ http://localhost/hostel_complain/
 - [ ] REST API backend version
 ---
  
-## 📊 Project Status
+##  Project Status
  
 | Component | Status |
 |---|---|
