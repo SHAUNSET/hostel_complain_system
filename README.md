@@ -2,25 +2,6 @@
  
 > A role-based complaint tracking web application for hostel administration — built with PHP, MySQL, and Apache via XAMPP.
  
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Backend](https://img.shields.io/badge/Backend-PHP-777BB4?logo=php&logoColor=white)
-![Database](https://img.shields.io/badge/Database-MySQL-4479A1?logo=mysql&logoColor=white)
-![Server](https://img.shields.io/badge/Server-Apache%20%7C%20XAMPP-FB7A24?logo=apache&logoColor=white)
-![Frontend](https://img.shields.io/badge/Frontend-HTML%20%2F%20CSS-E34F26?logo=html5&logoColor=white)
- 
----
- 
-## 📋 Table of Contents
- 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Database Design](#-database-design)
-- [Authentication Flow](#-authentication-flow)
-- [Functional Flow](#-functional-flow)
-- [Getting Started](#-getting-started)
-- [Future Improvements](#-future-improvements)
 ---
  
 ## 🔍 Overview
@@ -222,12 +203,3 @@ http://localhost/hostel_complain/
 | Complaint lifecycle | ✅ Working |
 | UI / Styling | 🔧 Under refinement |
  
----
- 
-## 📄 License
- 
-This project is open source and available under the [MIT License](LICENSE).
- 
----
- 
-<p align="center">Built with ❤️ using PHP & MySQL</p>
